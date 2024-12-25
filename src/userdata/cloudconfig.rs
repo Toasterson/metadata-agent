@@ -68,7 +68,7 @@ pub struct CloudConfig {
     #[serde(rename = "ca-certs")]
     pub ca_certs: Option<CaCertsData>,
     pub bootcmd: Option<Multiformat>,
-    pub runcms: Option<Multiformat>,
+    pub runcmd: Option<Multiformat>,
     pub final_message: Option<String>,
     pub packages: Option<Multiformat>,
     pub package_update: Option<bool>,

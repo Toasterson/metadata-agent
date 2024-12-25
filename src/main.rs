@@ -1691,6 +1691,14 @@ fn run_illumos(log: &Logger, smbios_raw_string: &str) -> Result<()> {
         }
     }
 
+    /*
+     * Get a user-provided first boot script from the archive, if provided:
+     */
+    let script = format!("{}/firstboot.sh", UNPACKDIR);
+    if let Some(script) = read_file(&script)? {
+        phase_userscript(log, &script)?;
+    }
+
     write_lines(log, STAMP, &[ds.uuid])?;
 
     Ok(())
